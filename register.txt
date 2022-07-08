@@ -1,0 +1,20 @@
+String p_name = stdName.getText();
+        String p_uname = stdUname.getText();
+        String p_email = stdEmail.getText();
+        String p_gender = stdCbox.getItemAt(stdCbox.getSelectedIndex());
+        String p_mobile = stdMobile.getText();
+        String p_rg = rgField.getItemAt(rgField.getSelectedIndex());
+        String p_pass = stdPass.getText();
+        String p_cpass = stdCpass.getText();
+        
+       int i =  erpRecord.setAllDetails(p_name,p_uname,p_email,p_gender,p_mobile,p_rg,p_pass,p_cpass);
+       if(i==1)
+       {
+           JOptionPane.showMessageDialog(this, "Data Inserted Successfully");
+       }
+       else
+       {
+           JOptionPane.showMessageDialog(this, "Data not inserted");
+       }
+        
+        reset();

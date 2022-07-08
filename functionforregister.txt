@@ -1,0 +1,29 @@
+static int setAllDetails(String p_name, String p_uname, String p_email, String p_gender, String p_mobile, String p_rg, String p_pass, String p_cpass)
+    {
+        
+        //To change body of generated methods, choose Tools | Templates.
+        int i=0;
+        try
+        {
+            Connection con = erpRecord.getConnection();
+            String query= "insert into regester (name,username,email,gender,mobile,regester,password,cnfPassword) values(?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, p_name);
+            ps.setString(2, p_uname);
+            ps.setString(3, p_email);
+            ps.setString(4, p_mobile);
+            ps.setString(5, p_gender);
+            ps.setString(6, p_rg);
+            ps.setString(7, p_pass);
+            ps.setString(8, p_cpass);
+
+            
+            i = ps.executeUpdate();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return i;
+    }
